@@ -62,6 +62,13 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Imagem local
+              Image.asset(
+                'assets/gorjetas_image.jpg', // Caminho da imagem
+                height: 100, // Altura da imagem
+                width: 100, // Largura da imagem
+              ),
+              SizedBox(height: 20),
               SizedBox(
                 width: 300,
                 child: TextField(
