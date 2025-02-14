@@ -27,12 +27,26 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
   double _valorTotal = 0.0;
   double _gorjeta = 0.0;
 
-  void _calcularGorjeta() {
-    double valorCompra = double.tryParse(_valorController.text) ?? 0.0;
+  void _calcularGorjeta(String value) {
+    double valorCompra = double.tryParse(value) ?? 0.0;
     setState(() {
       _gorjeta = valorCompra * 0.1; // 10% de gorjeta
       _valorTotal = valorCompra + _gorjeta;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _valorController.addListener(() {
+      _calcularGorjeta(_valorController.text);
+    });
+  }
+
+  @override
+  void dispose() {
+    _valorController.dispose();
+    super.dispose();
   }
 
   @override
@@ -45,11 +59,11 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Centraliza verticalmente
-            crossAxisAlignment: CrossAxisAlignment.center, // Centraliza horizontalmente
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                width: 300, // Largura fixa para o campo de texto
+                width: 300,
                 child: TextField(
                   controller: _valorController,
                   decoration: InputDecoration(
@@ -58,11 +72,6 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
                   ),
                   keyboardType: TextInputType.numberWithOptions(decimal: true),
                 ),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _calcularGorjeta,
-                child: Text('Calcular Gorjeta'),
               ),
               SizedBox(height: 20),
               Text(
