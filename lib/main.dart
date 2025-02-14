@@ -53,7 +53,12 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calcula Gorjetas'),
+        title: Text('Calcula Gorjetas',
+          style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),),
+        backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white,
       ),
       body: Center(
         child: Padding(
@@ -65,8 +70,8 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
               // Imagem local
               Image.asset(
                 'assets/gorjetas_image.jpg', // Caminho da imagem
-                height: 100, // Altura da imagem
-                width: 100, // Largura da imagem
+                height: 200, // Altura da imagem
+                width: 200, // Largura da imagem
               ),
               SizedBox(height: 20),
               SizedBox(
