@@ -67,12 +67,15 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Imagem local
-              Image.asset(
+          ClipRRect(
+            borderRadius: BorderRadius.circular(200),
+            child: Image.asset(
                 'assets/gorjetas_image.jpg', // Caminho da imagem
-                height: 200, // Altura da imagem
-                width: 200, // Largura da imagem
+                height: 200,
+                width: 200,
+                fit: BoxFit.cover,
               ),
+          ),
               SizedBox(height: 20),
               SizedBox(
                 width: 300,
@@ -81,6 +84,7 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
                   decoration: InputDecoration(
                     labelText: 'Valor da Compra',
                     border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.monetization_on_outlined),
                   ),
                   keyboardType: TextInputType.numberWithOptions(decimal: true),
                 ),
