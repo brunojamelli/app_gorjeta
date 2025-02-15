@@ -53,10 +53,15 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calcula Gorjetas',
-          style: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center, // Centraliza horizontalmente
+          children: [
+            Text(
+              'Calcula Gorjetas',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
       ),
@@ -82,7 +87,7 @@ class _CalculaGorjetasScreenState extends State<CalculaGorjetasScreen> {
                 child: TextField(
                   controller: _valorController,
                   decoration: InputDecoration(
-                    labelText: 'Valor da Compra',
+                    labelText: 'Digite o valor da conta',
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.monetization_on_outlined),
                   ),
